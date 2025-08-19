@@ -53,8 +53,8 @@ _C.DATASET = CN()
 #   ROOT/DATANAME
 #   - CAMERA
 #   - IMAGE_DIR
-_C.DATASET.ROOT         = '/teams/microsate_1687685838/qza/dataset/SPE3R/SPE3R'   # 数据集根目录
-_C.DATASET.DATANAME     = 'satnet'                        # 数据集名称
+_C.DATASET.ROOT         = '/teams/microsate_1687685838/qza/dataset/SPE3R'   # 数据集根目录
+_C.DATASET.DATANAME     = 'spe3r'                        # 数据集名称
 _C.DATASET.CAMERA       = 'camera.json'                   # 相机参数文件
 _C.DATASET.IMAGE_DIR    = 'images'                        # 图像文件夹
 _C.DATASET.MASK_DIR     = 'masks'                         # 掩码文件夹
