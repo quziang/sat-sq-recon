@@ -4,6 +4,8 @@ version = "0.1.0"
 description = "Rapid Abstraction of Spacecraft 3D Structure from Single 2D Image"
 authors = ["Tae Ha 'Jeff' Park <tpark94@stanford.edu>"]
 readme = "README.md"
+package-mode = false
+
 
 [tool.poetry.dependencies]
 python = "3.10.12"

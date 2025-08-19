@@ -1,6 +1,56 @@
+
 # 基于单幅二维图像的航天器三维结构快速抽象
 
 本仓库由 Stanford University [Space Rendezvous Laboratory (SLAB)](https://slab.stanford.edu) 的 Tae Ha "Jeff" Park 开发。
+
+## 项目文件结构与说明
+
+```
+sat-sq-recon/
+├── LICENSE.md                # 项目许可证
+├── README.md                 # 英文说明文档
+├── README_zh.md              # 中文说明文档
+├── pyproject.toml            # poetry 配置与依赖
+├── poetry.lock               # poetry 依赖锁定
+├── setup.py                  # Cython 扩展编译脚本
+├── core/                     # 项目核心代码
+│   ├── configs/              # 配置文件（如 default.py）
+│   ├── dataset/              # 数据集相关（加载、构建、基类等）
+│   ├── nets/                 # 网络结构与相关模块
+│   │   ├── losses/           # 损失函数实现
+│   │   ├── modules/          # 编码器、生成器等网络模块
+│   │   ├── renderer/         # 渲染器与网格转换
+│   │   └── utils.py          # 网络相关工具函数
+│   ├── solver/               # 优化器与训练相关工具
+│   ├── utils/                # 通用工具（断点、可视化、libmesh等）
+│   │   ├── libmesh/          # 网格相关底层实现（如三角形哈希、点内外判定）
+│   │   └── ...               # 其它工具
+│   └── ...                   # 其它核心代码
+├── experiments/              # 实验配置（如 config.yaml）
+├── tools/                    # 各类脚本工具
+│   ├── _init_paths.py        # 路径初始化
+│   ├── evaluate.py           # 评估脚本，输出指标与可视化
+│   ├── preprocess.py         # 数据预处理，生成点云与占据标签
+│   ├── train.py              # 训练主脚本
+│   └── get_spe3r.sh          # 数据集自动下载与解压脚本
+└── ...
+```
+
+### 主要文件/文件夹功能简述
+
+- `core/configs/`：存放项目配置文件，定义训练、数据等参数。
+- `core/dataset/`：数据集加载、构建、基类定义，支持多种数据格式。
+- `core/nets/`：神经网络结构，包括主模型、损失函数、编码器、生成器、渲染器等。
+- `core/nets/losses/`：各类损失函数实现，如 Chamfer 距离、占据损失、姿态损失等。
+- `core/nets/modules/`：网络模块，如编码器、生成器、基础层。
+- `core/nets/renderer/`：渲染器与网格转换工具。
+- `core/solver/`：优化器、学习率调整等训练相关工具。
+- `core/utils/`：通用工具，包括断点保存/加载、可视化、网格相关底层实现（libmesh）。
+- `core/utils/libmesh/`：网格相关底层算法，如三角形哈希、点内外判定。
+- `experiments/`：实验配置文件（如 config.yaml），可自定义实验参数。
+- `tools/`：各类脚本工具，包括训练、评估、预处理、路径初始化等。
+- `setup.py`：Cython 扩展编译脚本，主要用于加速网格相关底层操作。
+- `pyproject.toml`/`poetry.lock`：依赖管理与环境配置。
 
 ## 更新日志
 
